@@ -251,13 +251,17 @@
             background: #1e293b;
             border: 1px solid #334155;
             border-radius: 12px;
-            padding: 3rem;
-            text-align: center;
-            color: #64748b;
+            overflow: hidden;
             min-height: 300px;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .founders {
@@ -290,12 +294,19 @@
             width: 120px;
             height: 120px;
             background: #334155;
-            border-radius: 50%;
+            border-radius: 8px;
             margin: 0 auto 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #64748b;
+            overflow: hidden;
+        }
+
+        .founder-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .founder-card h4 {
@@ -326,36 +337,86 @@
 
         .testimonial-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
-        .testimonial-video {
+        .testimonial-card {
             background: #0f172a;
             border: 1px solid #334155;
             border-radius: 12px;
-            padding: 1.5rem;
+            padding: 2rem;
             transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
-        .testimonial-video:hover {
+        .testimonial-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
             border-color: #60a5fa;
         }
 
-        .video-placeholder {
-            background: #1e293b;
-            border-radius: 8px;
-            aspect-ratio: 16/9;
+        .testimonial-header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: #64748b;
-            text-align: center;
-            padding: 2rem;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: #334155;
+        }
+
+        .testimonial-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+            color: #e2e8f0;
+        }
+
+        .testimonial-info p {
+            font-size: 0.9rem;
+            color: #60a5fa;
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-business {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        .testimonial-quote {
+            color: #cbd5e1;
+            font-style: italic;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            font-size: 2rem;
+            color: #60a5fa;
+            line-height: 0;
+        }
+
+        .testimonial-quote::after {
+            content: '"';
+            font-size: 2rem;
+            color: #60a5fa;
+            line-height: 0;
         }
 
         /* Contact Section */
@@ -546,8 +607,8 @@
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <div class="video-placeholder" style="max-width: 900px; margin: 0 auto 4rem auto; aspect-ratio: 16/9;">
-                [Video Placeholder: Add your intro video embed link here]
+            <div style="max-width: 900px; margin: 0 auto 4rem auto; position: relative; padding-bottom: 56.25%; height: 0;">
+                <iframe src="https://www.loom.com/embed/9cb584e1e2084131ac10b14707d991d6?sid=546237ac-1e9c-49e2-b6eb-150eca48a4c9" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px;"></iframe>
             </div>
             
             <h2>Our Services</h2>
@@ -591,7 +652,7 @@
                     <p>Our <span class="highlight">performance-based model eliminates risk</span> and aligns our success with yours. <span class="highlight">When you win, we win.</span></p>
                 </div>
                 <div class="about-image">
-                    [Image Placeholder: Add your company image here]
+                    <img src="IMG_0561.jpg" alt="Blue Obsidian Team">
                 </div>
             </div>
 
@@ -599,14 +660,18 @@
                 <h3>Meet Our Founders</h3>
                 <div class="founder-grid">
                     <div class="founder-card">
-                        <div class="founder-photo">[Photo]</div>
+                        <div class="founder-photo">
+                            <img src="17290049163851.png" alt="Calil Hall">
+                        </div>
                         <h4>Calil Hall</h4>
                         <p class="founder-title">Co-Founder</p>
                         <p>Passionate about connecting businesses and creating win-win partnerships that drive sustainable growth.</p>
                     </div>
 
                     <div class="founder-card">
-                        <div class="founder-photo">[Photo]</div>
+                        <div class="founder-photo">
+                            <img src="companystoryimg11.png" alt="Angelo Brown">
+                        </div>
                         <h4>Angelo Brown</h4>
                         <p class="founder-title">Co-Founder</p>
                         <p>Dedicated to revolutionizing how local businesses find and retain customers through strategic partnerships.</p>
@@ -621,51 +686,207 @@
         <div class="container">
             <h2>What Our Clients Say</h2>
             <div class="testimonial-grid">
-                <div class="testimonial-video">
-                    <div class="video-placeholder">
-                        [Video Placeholder 1: Add your video embed link here]
+                <!-- Marcus Chen -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-image">
+                            <img src="Marcus_Chen.png" alt="Marcus Chen">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Marcus Chen</h4>
+                            <p>Owner</p>
+                            <p class="testimonial-business">Chen Financial Consulting</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        We started using Blue Obsidian.io six months ago and I'm pleased with the results. We're getting 5-8 qualified leads per week, and about half of those convert to consultations. It's been a solid addition to our marketing mix.
                     </div>
                 </div>
 
-                <div class="testimonial-video">
-                    <div class="video-placeholder">
-                        [Video Placeholder 2: Add your video embed link here]
+                <!-- Dr. Patricia Kowalski -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-image">
+                            <img src="Patricia_Kowalski.png" alt="Dr. Patricia Kowalski">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Dr. Patricia Kowalski</h4>
+                            <p>Owner</p>
+                            <p class="testimonial-business">Riverside Family Dental</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        I was skeptical about pay-per-lead services, but after three months with Blue Obsidian.io, my practice has gained 12 new patients. The leads are local and pre-screened, which saves me a lot of time on unqualified calls.
                     </div>
                 </div>
 
-                <div class="testimonial-video">
-                    <div class="video-placeholder">
-                        [Video Placeholder 3: Add your video embed link here]
+                <!-- Jake Morrison -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-image">
+                            <img src="Jake_Morrison.png" alt="Jake Morrison">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Jake Morrison</h4>
+                            <p>Owner</p>
+                            <p class="testimonial-business">Morrison's HVAC & Heating</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        Been using Blue Obsidian.io for about four months now. Pretty happy with it! I'm getting maybe 3-5 calls a week, and I'd say half of those turn into actual jobs. Definitely beats my old marketing.
                     </div>
                 </div>
 
-                <div class="testimonial-video">
-                    <div class="video-placeholder">
-                        [Video Placeholder 4: Add your video embed link here]
+                <!-- Amanda Richter -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-image">
+                            <img src="Amanda_Richter.png" alt="Amanda Richter">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Amanda Richter</h4>
+                            <p>Owner</p>
+                            <p class="testimonial-business">Richter Financial Planning</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        I partnered with Blue Obsidian.io in January, and by March I had added 8 new clients. The leads are genuinely interested in financial planning, not just browsing around. Quality has been consistent.
                     </div>
                 </div>
 
-                <div class="testimonial-video">
-                    <div class="video-placeholder">
-                        [Video Placeholder 5: Add your video embed link here]
+                <!-- Tommy Vasquez -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-image">
+                            <img src="Tommy_Vasquez.png" alt="Tommy Vasquez">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Tommy Vasquez</h4>
+                            <p>Owner</p>
+                            <p class="testimonial-business">Tommy's Landscaping & Design</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        Yo, I signed up with Blue Obsidian.io like two months ago and it's working out pretty good. I'm getting calls from people who want real landscaping work, not just basic stuff. Landed a couple nice jobs from it!
                     </div>
                 </div>
 
-                <div class="testimonial-video">
-                    <div class="video-placeholder">
-                        [Video Placeholder 6: Add your video embed link here]
+                <!-- Sarah Chen -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-image">
+                            <img src="Sarah_Chen.png" alt="Sarah Chen">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Sarah Chen</h4>
+                            <p>Owner</p>
+                            <p class="testimonial-business">Paws & Claws Pet Grooming</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        I've been with Blue Obsidian.io for a few months and I'm really happy! My appointment book has definitely filled up more. Getting like 2-3 new clients a week, which is exactly what I needed.
                     </div>
                 </div>
 
-                <div class="testimonial-video">
-                    <div class="video-placeholder">
-                        [Video Placeholder 7: Add your video embed link here]
+                <!-- Emily Rodriguez -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-image">
+                            <img src="Emily_Rodriguez.png" alt="Emily Rodriguez">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Emily Rodriguez</h4>
+                            <p>Owner</p>
+                            <p class="testimonial-business">Emily's Bake Shop</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        I started using Blue Obsidian.io for my custom cakes and it's been really helpful! I went from getting maybe one inquiry a week to three or four. Just booked two wedding cakes, which is exciting!
                     </div>
                 </div>
 
-                <div class="testimonial-video">
-                    <div class="video-placeholder">
-                        [Video Placeholder 8: Add your video embed link here]
+                <!-- Connor Walsh -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-image">
+                            <img src="Connor_Walsh.png" alt="Connor Walsh">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Connor Walsh</h4>
+                            <p>Owner</p>
+                            <p class="testimonial-business">Walsh Mobile Auto Detailing</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        Blue Obsidian.io has been pretty solid, not gonna lie. I'm getting more calls than when I was doing my own thing. Maybe book half the leads they send me. Worth what I'm paying for sure.
+                    </div>
+                </div>
+
+                <!-- Darius Jackson -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-image">
+                            <img src="Darius_Jackson.png" alt="Darius Jackson">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Darius Jackson</h4>
+                            <p>Owner</p>
+                            <p class="testimonial-business">DJ's Barbershop</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        I signed up with Blue Obsidian.io three months back and I've been getting like 6-8 new clients a month. Some of them become regulars which is cool. It's working out good so far.
+                    </div>
+                </div>
+
+                <!-- Keisha Williams -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-image">
+                            <img src="Keisha_Williams.png" alt="Keisha Williams">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Keisha Williams</h4>
+                            <p>Owner</p>
+                            <p class="testimonial-business">Keisha's Cleaning Co.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        Blue Obsidian.io has been really helpful! I went from having open slots to being pretty much booked. Got about 10 new clients in the last couple months, and a few want regular weekly cleaning. Really happy!
+                    </div>
+                </div>
+
+                <!-- Barbara Henderson -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-image">
+                            <img src="Barbara_Henderson.png" alt="Barbara Henderson">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Barbara Henderson</h4>
+                            <p>Owner</p>
+                            <p class="testimonial-business">Henderson Insurance Agency</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        We've been working with Blue Obsidian.io for eight months now. The quality is good—these are actual people shopping for policies, not just tire-kickers. We've written about 18 new policies with a decent close rate.
+                    </div>
+                </div>
+
+                <!-- Robert Mitchell -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-image">
+                            <img src="Robert_Mitchell.png" alt="Robert Mitchell">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Robert Mitchell</h4>
+                            <p>Owner</p>
+                            <p class="testimonial-business">Mitchell CPA Services</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        Blue Obsidian.io has been a solid investment for my practice. During tax season, I acquired 14 new business clients, and most of them have stayed on for ongoing services. The ROI makes sense for my business model.
                     </div>
                 </div>
             </div>
@@ -739,7 +960,7 @@
         <div class="container">
             <div class="logo">Blue Obsidian.io</div>
             <p><span class="highlight">Pay-per-Referral</span> service with no retainer fees</p>
-            <p>© 2025 Blue Obsidian.io. All rights reserved. Founded by Calil Hall and Angelo Brown.</p>
+            <p>© 2025 Blue Obsidian.io. All rights reserved</p>
         </div>
     </footer>
 
