@@ -3,135 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blue Obsidian.io - Pay-Per-Referral Service</title>
+    <title>BlueObsidian IO | Workforce Development, Drone Training & Software Development</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0a;
+            --bg-card: #111111;
+            --bg-card-hover: #1a1a1a;
+            --blue-primary: #0066ff;
+            --blue-light: #00a8ff;
+            --blue-glow: #0088ff;
+            --cyan: #00d4ff;
+            --purple: #7c3aed;
+            --green: #10b981;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --border-color: rgba(255,255,255,0.1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: #0f172a;
-            color: #e2e8f0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        .highlight {
-            color: #60a5fa;
-            font-weight: 600;
-        }
-
-        .highlight-bg {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(59, 130, 246, 0.2));
-            padding: 2px 8px;
-            border-radius: 4px;
-            color: #60a5fa;
-            font-weight: 600;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation */
-        nav {
-            background-color: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
+        /* Grid Background Pattern */
+        .grid-bg {
             position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #334155;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 64px 64px;
+            pointer-events: none;
+            z-index: 0;
         }
 
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 20px;
+        .grid-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, transparent 0%, var(--bg-primary) 70%);
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, #60a5fa, #22d3ee);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: #e2e8f0;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #60a5fa;
-        }
-
-        .btn {
-            background: #2563eb;
+        ::selection {
+            background: var(--blue-primary);
             color: white;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s;
-            box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
         }
 
-        .btn:hover {
-            background: #1d4ed8;
-            transform: translateY(-2px);
-            box-shadow: 0 0 30px rgba(37, 99, 235, 0.6);
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(-45deg, #0f172a, #1e293b, #0c4a6e, #1e293b);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-            padding: 150px 20px 100px;
-            text-align: center;
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
         }
 
-        @keyframes gradient {
+        @keyframes fade-up {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes gradient-shift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #60a5fa, #22d3ee, #3b82f6);
+        .animate-fade-up {
+            animation: fade-up 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-text span {
+            background: linear-gradient(135deg, var(--blue-light), var(--cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            line-height: 1.2;
         }
 
-        .hero p {
-            font-size: 1.5rem;
-            color: #cbd5e1;
-            margin-bottom: 2rem;
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-cta {
+            background: var(--text-primary);
+            color: var(--bg-primary) !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: opacity 0.3s ease !important;
+        }
+
+        .nav-cta:hover {
+            opacity: 0.9;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-btn span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .hero-gradient {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
             max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            height: 600px;
+            background: radial-gradient(ellipse at center top, rgba(0, 102, 255, 0.15) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5.5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--blue-light), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
         }
 
         .hero-buttons {
@@ -139,848 +269,1009 @@
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.75rem;
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
         }
 
         .btn-secondary {
-            background: #1e293b;
-            border: 1px solid #475569;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.75rem;
+            background: transparent;
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .btn-secondary:hover {
-            background: #334155;
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
-        /* Services Section */
-        .services {
-            padding: 100px 20px;
-            background-color: #1e293b;
+        /* Hero Card */
+        .hero-card {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
         }
 
-        .services h2 {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 4rem;
+        .hero-card-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: rgba(255,255,255,0.02);
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .service-grid {
+        .hero-card-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .hero-card-dot.red { background: #ff5f57; }
+        .hero-card-dot.yellow { background: #ffbd2e; }
+        .hero-card-dot.green { background: #28ca41; }
+
+        .hero-card-content {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hero-card-badge {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            background: rgba(0, 168, 255, 0.1);
+            border: 1px solid rgba(0, 168, 255, 0.3);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-card-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .hero-card-features {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-card-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .hero-card-feature svg {
+            color: var(--green);
+        }
+
+        /* Organization Section */
+        .org-section {
+            padding: 6rem 2rem;
+            border-top: 1px solid var(--border-color);
+            position: relative;
+            z-index: 1;
+            background: var(--bg-primary);
+        }
+
+        .org-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            max-width: 1000px;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .org-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .org-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .org-description {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .org-stats {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .org-stat {
+            text-align: left;
+        }
+
+        .org-stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--blue-light), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .org-stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .org-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .org-feature {
+            display: flex;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .org-feature:hover {
+            border-color: rgba(0, 168, 255, 0.3);
+            background: var(--bg-card-hover);
+        }
+
+        .org-feature-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.2), rgba(0, 212, 255, 0.1));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .org-feature-content h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .org-feature-content p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Services Tools Section */
+        .tools-section {
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--border-color);
+            position: relative;
+            z-index: 1;
+            background: var(--bg-primary);
+        }
+
+        .tools-container {
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .service-card {
-            background: #0f172a;
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid #334155;
-            transition: all 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: #2563eb;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-        }
-
-        .service-card:nth-child(2) .service-icon {
-            background: #0891b2;
-        }
-
-        .service-card:nth-child(3) .service-icon {
-            background: #7c3aed;
-        }
-
-        .service-card:nth-child(4) .service-icon {
-            background: #059669;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-card p {
-            color: #94a3b8;
-        }
-
-        /* About Section */
-        .about {
-            padding: 100px 20px;
-            background-color: #0f172a;
-        }
-
-        .about h2 {
+        .tools-header {
             text-align: center;
-            font-size: 3rem;
             margin-bottom: 3rem;
         }
 
-        .about-content {
+        .tools-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .tools-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+        }
+
+        .tools-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            margin-bottom: 4rem;
-        }
-
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text p {
-            color: #94a3b8;
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-image {
-            background: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 12px;
-            overflow: hidden;
-            min-height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .founders {
-            margin-top: 4rem;
-        }
-
-        .founders h3 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .founder-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
             max-width: 900px;
             margin: 0 auto;
         }
 
-        .founder-card {
-            background: #1e293b;
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid #334155;
+        .tool-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
             text-align: center;
+            transition: all 0.3s ease;
         }
 
-        .founder-photo {
-            width: 120px;
-            height: 120px;
-            background: #334155;
-            border-radius: 8px;
-            margin: 0 auto 1.5rem;
-            display: flex;
+        .tool-card:hover {
+            border-color: rgba(0, 168, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .tool-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .tool-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .tool-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Feature Section (Alternating) */
+        .feature-section {
+            padding: 6rem 2rem;
+            border-top: 1px solid var(--border-color);
+            position: relative;
+            z-index: 1;
+            background: var(--bg-primary);
+        }
+
+        .feature-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: center;
-            justify-content: center;
-            color: #64748b;
-            overflow: hidden;
         }
 
-        .founder-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .feature-container.reverse {
+            direction: rtl;
         }
 
-        .founder-card h4 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+        .feature-container.reverse > * {
+            direction: ltr;
         }
 
-        .founder-title {
-            color: #60a5fa;
+        .feature-label {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            background: rgba(0, 168, 255, 0.1);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             margin-bottom: 1rem;
         }
 
-        .founder-card p {
-            color: #94a3b8;
+        .feature-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
         }
 
-        /* Testimonials Section */
-        .testimonials {
-            padding: 100px 20px;
-            background-color: #1e293b;
+        .feature-description {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
         }
 
-        .testimonials h2 {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .testimonial-card {
-            background: #0f172a;
-            border: 1px solid #334155;
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s;
+        .feature-list {
+            list-style: none;
             display: flex;
             flex-direction: column;
+            gap: 0.75rem;
         }
 
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
-            border-color: #60a5fa;
-        }
-
-        .testimonial-header {
+        .feature-list li {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
         }
 
-        .testimonial-image {
-            width: 80px;
-            height: 80px;
-            border-radius: 8px;
-            overflow: hidden;
+        .feature-list li svg {
+            color: var(--cyan);
             flex-shrink: 0;
-            background: #334155;
         }
 
-        .testimonial-image img {
+        .feature-visual {
+            position: relative;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .feature-card-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: rgba(255,255,255,0.02);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .feature-card-image {
             width: 100%;
-            height: 100%;
+            height: 280px;
             object-fit: cover;
         }
 
-        .testimonial-info h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.25rem;
-            color: #e2e8f0;
-        }
-
-        .testimonial-info p {
-            font-size: 0.9rem;
-            color: #60a5fa;
-            margin-bottom: 0.25rem;
-        }
-
-        .testimonial-business {
-            font-size: 0.85rem;
-            color: #94a3b8;
-        }
-
-        .testimonial-quote {
-            color: #cbd5e1;
-            font-style: italic;
-            line-height: 1.7;
-            flex-grow: 1;
-        }
-
-        .testimonial-quote::before {
-            content: '"';
-            font-size: 2rem;
-            color: #60a5fa;
-            line-height: 0;
-        }
-
-        .testimonial-quote::after {
-            content: '"';
-            font-size: 2rem;
-            color: #60a5fa;
-            line-height: 0;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 100px 20px;
-            background-color: #1e293b;
-        }
-
-        .contact h2 {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact .container > p {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #94a3b8;
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .contact-form {
-            background: #0f172a;
-            padding: 3rem;
-            border-radius: 12px;
-            border: 1px solid #334155;
-        }
-
-        .calendar-placeholder {
-            background: #0f172a;
-            padding: 3rem;
-            border-radius: 12px;
-            border: 1px solid #334155;
+        .feature-card-body {
+            padding: 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #64748b;
+        }
+
+        .feature-card-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--blue-light), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 2rem;
             text-align: center;
-            min-height: 600px;
+            position: relative;
+            border-top: 1px solid var(--border-color);
+            z-index: 1;
+            background: var(--bg-primary);
         }
 
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+        .cta-bg {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(0, 102, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 10;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-label {
+            font-size: 0.85rem;
+            color: var(--cyan);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .cta-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.1;
             margin-bottom: 1.5rem;
         }
 
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            background: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 8px;
-            color: #e2e8f0;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #2563eb;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 1rem;
+        .cta-description {
+            color: var(--text-secondary);
             font-size: 1.1rem;
+            margin-bottom: 2rem;
         }
 
         /* Footer */
-        footer {
-            background-color: #020617;
-            padding: 3rem 20px;
-            text-align: center;
-            border-top: 1px solid #334155;
+        .footer {
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border-color);
+            position: relative;
+            z-index: 1;
+            background: var(--bg-primary);
         }
 
-        footer .logo {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
         }
 
-        footer p {
-            color: #64748b;
-            margin-bottom: 0.5rem;
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
         }
 
-        /* Responsive */
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-copyright {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .org-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .feature-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .feature-container.reverse {
+                direction: ltr;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
-            nav ul {
+            .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--border-color);
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
+            .nav-links.active {
+                display: flex;
             }
 
-            .hero p {
-                font-size: 1.2rem;
+            .mobile-menu-btn {
+                display: flex;
             }
 
-            .service-grid {
-                grid-template-columns: 1fr;
+            .org-stats {
+                gap: 2rem;
             }
 
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .services h2,
-            .about h2,
-            .testimonials h2,
-            .contact h2 {
+            .org-stat-number {
                 font-size: 2rem;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-card-features {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .org-stats {
+                flex-direction: column;
+                gap: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Grid Background -->
+    <div class="grid-bg"></div>
+
     <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="logo">Blue Obsidian.io</div>
-            <ul>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 120" width="32" height="40">
+                        <polygon points="40,5 70,30 65,95 40,115 15,95 10,30" fill="#0a3d5c"/>
+                        <polygon points="40,5 70,30 65,95 40,60" fill="#0c4a6e"/>
+                        <polygon points="40,60 65,95 40,115" fill="#0a3d5c"/>
+                        <polygon points="40,60 15,95 40,115" fill="#1e6a8a"/>
+                        <polygon points="40,5 10,30 15,95 40,60" fill="#1a7a9a"/>
+                        <polygon points="40,5 18,35 25,65 40,45" fill="#00d4ff"/>
+                        <polygon points="25,65 15,95 40,60" fill="#00b8e0"/>
+                        <polygon points="40,5 62,35 55,50 40,45" fill="#1a5a7a"/>
+                        <polygon points="55,50 62,35 70,30 65,95 40,60" fill="#0d4a60"/>
+                        <polygon points="40,45 25,65 40,60 55,50" fill="#0099cc" opacity="0.9"/>
+                        <polygon points="40,8 22,33 26,38 40,18" fill="#4de8ff" opacity="0.4"/>
+                    </svg>
+                </div>
+                <div class="logo-text">Blue<span>Obsidian</span></div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="nav-cta">Contact</a></li>
             </ul>
-            <a href="#contact" class="btn">Login</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <h1>Grow Your Business<br/>With Zero Risk or No Retainers</h1>
-            <p><span class="highlight-bg">Pay-per-referral</span> service that connects local businesses with quality referrals. <span class="highlight-bg">No retainer fees.</span> <span class="highlight-bg">No contracts.</span> <span class="highlight">Just results.</span></p>
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title animate-fade-up">
+                Build Your Future at the<br>
+                <span class="gradient-text">Speed of Innovation.</span>
+            </h1>
+            <p class="hero-subtitle animate-fade-up delay-1">
+                Detroit's premier workforce development company. Professional drone training, software education, and custom web & app development solutions.
+            </p>
+            <div class="hero-buttons animate-fade-up delay-2">
+                <a href="services.html" class="btn-primary">
+                    Explore Programs
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="contact.html" class="btn-secondary">Get In Touch</a>
+            </div>
+            <div class="hero-card animate-fade-up delay-3">
+                <div class="hero-card-header">
+                    <span class="hero-card-dot red"></span>
+                    <span class="hero-card-dot yellow"></span>
+                    <span class="hero-card-dot green"></span>
+                </div>
+                <div class="hero-card-content">
+                    <span class="hero-card-badge">Workforce Development</span>
+                    <h2 class="hero-card-title">THE BLUEOBSIDIAN <span class="gradient-text">ECOSYSTEM</span></h2>
+                    <div class="hero-card-features">
+                        <div class="hero-card-feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Drone Training
+                        </div>
+                        <div class="hero-card-feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Software Education
+                        </div>
+                        <div class="hero-card-feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Web & App Development
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organization Section -->
+    <section class="org-section">
+        <div class="org-container">
+            <div class="org-content">
+                <p class="org-label">An Educational</p>
+                <h2 class="org-title">
+                    <span class="gradient-text">Organization.</span>
+                </h2>
+                <p class="org-description">
+                    BlueObsidian IO is a Detroit-based workforce development and technology company. We specialize in professional drone (UAS) training, software development education, and provide custom web and app development services for businesses ready to grow.
+                </p>
+                <div class="org-stats">
+                    <div class="org-stat">
+                        <div class="org-stat-number">98%</div>
+                        <div class="org-stat-label">FAA Pass Rate</div>
+                    </div>
+                    <div class="org-stat">
+                        <div class="org-stat-number">5+</div>
+                        <div class="org-stat-label">Years Experience</div>
+                    </div>
+                    <div class="org-stat">
+                        <div class="org-stat-number">100%</div>
+                        <div class="org-stat-label">Commitment</div>
+                    </div>
+                </div>
+            </div>
+            <div class="org-features">
+                <div class="org-feature">
+                    <div class="org-feature-icon">🎓</div>
+                    <div class="org-feature-content">
+                        <h4>Expert-Led Training</h4>
+                        <p>FAA certified instruction with proven student success</p>
+                    </div>
+                </div>
+                <div class="org-feature">
+                    <div class="org-feature-icon">💻</div>
+                    <div class="org-feature-content">
+                        <h4>Modern Tech Stack</h4>
+                        <p>Web, mobile, AI — career-ready skills training</p>
+                    </div>
+                </div>
+                <div class="org-feature">
+                    <div class="org-feature-icon">🚀</div>
+                    <div class="org-feature-content">
+                        <h4>Full-Service Solutions</h4>
+                        <p>Custom websites, web apps, and mobile applications</p>
+                    </div>
+                </div>
+                <div class="org-feature">
+                    <div class="org-feature-icon">📍</div>
+                    <div class="org-feature-content">
+                        <h4>Detroit-Based</h4>
+                        <p>Michigan-focused, community-driven impact</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools/Services Overview -->
+    <section class="tools-section">
+        <div class="tools-container">
+            <div class="tools-header">
+                <p class="tools-label">Complete Solutions for the</p>
+                <h2 class="tools-title">Modern <span class="gradient-text">Workforce & Business.</span></h2>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">🚁</div>
+                    <div class="tool-name">DroneTraining</div>
+                    <div class="tool-desc">FAA Part 107 Certification</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">💻</div>
+                    <div class="tool-name">SoftwareDev</div>
+                    <div class="tool-desc">Web & App Education</div>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🌐</div>
+                    <div class="tool-name">WebBuild</div>
+                    <div class="tool-desc">Custom Website & App Development</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 1: Drone Training -->
+    <section class="feature-section">
+        <div class="feature-container">
+            <div class="feature-content">
+                <span class="feature-label">Training</span>
+                <h2 class="feature-title">
+                    <span class="gradient-text">DroneTraining.</span><br>
+                    Master the skies with FAA certification.
+                </h2>
+                <p class="feature-description">
+                    Professional UAS training designed for students, professionals, and public safety personnel. Our expert-led courses prepare you for the FAA Part 107 exam with a 98% pass rate.
+                </p>
+                <ul class="feature-list">
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        FAA Part 107 Test Preparation
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Commercial Drone Operations
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Public Safety / Law Enforcement UAS
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Youth & STEM Drone Programs
+                    </li>
+                </ul>
+            </div>
+            <div class="feature-visual">
+                <div class="feature-card">
+                    <div class="feature-card-header">
+                        <span class="hero-card-dot red"></span>
+                        <span class="hero-card-dot yellow"></span>
+                        <span class="hero-card-dot green"></span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=600&q=80" alt="Drone Training" class="feature-card-image">
+                    <div class="feature-card-body">
+                        <span class="feature-card-logo">DroneTraining</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 2: Software Development Training -->
+    <section class="feature-section">
+        <div class="feature-container reverse">
+            <div class="feature-content">
+                <span class="feature-label">Education</span>
+                <h2 class="feature-title">
+                    <span class="gradient-text">SoftwareDev.</span><br>
+                    Code your path to a tech career.
+                </h2>
+                <p class="feature-description">
+                    Hands-on workforce development programs teaching modern web development, mobile apps, and AI fundamentals. Build real projects and launch your tech career.
+                </p>
+                <ul class="feature-list">
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Web Development Fundamentals
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Mobile App Development
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        AI & Machine Learning Basics
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Career-Ready Project Portfolio
+                    </li>
+                </ul>
+            </div>
+            <div class="feature-visual">
+                <div class="feature-card">
+                    <div class="feature-card-header">
+                        <span class="hero-card-dot red"></span>
+                        <span class="hero-card-dot yellow"></span>
+                        <span class="hero-card-dot green"></span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80" alt="Software Development" class="feature-card-image">
+                    <div class="feature-card-body">
+                        <span class="feature-card-logo">SoftwareDev</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 3: Web Development Service -->
+    <section class="feature-section">
+        <div class="feature-container">
+            <div class="feature-content">
+                <span class="feature-label">Services</span>
+                <h2 class="feature-title">
+                    <span class="gradient-text">WebBuild.</span><br>
+                    Custom websites that convert.
+                </h2>
+                <p class="feature-description">
+                    Professional website and application development for businesses. From landing pages to full web apps, we build digital solutions that drive results.
+                </p>
+                <ul class="feature-list">
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Custom Website Design & Development
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Web Application Development
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Mobile App Development
+                    </li>
+                    <li>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        E-commerce & SaaS Solutions
+                    </li>
+                </ul>
+            </div>
+            <div class="feature-visual">
+                <div class="feature-card">
+                    <div class="feature-card-header">
+                        <span class="hero-card-dot red"></span>
+                        <span class="hero-card-dot yellow"></span>
+                        <span class="hero-card-dot green"></span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&q=80" alt="Web Development" class="feature-card-image">
+                    <div class="feature-card-body">
+                        <span class="feature-card-logo">WebBuild</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-bg"></div>
+        <div class="cta-content">
+            <p class="cta-label">Ready to Get Started?</p>
+            <h2 class="cta-title">
+                Stop Waiting.<br>
+                <span class="gradient-text">Start Building.</span>
+            </h2>
+            <p class="cta-description">
+                Whether you're launching a new career in drones or tech, or need custom software built for your business — BlueObsidian IO has you covered.
+            </p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn">Start Getting Referrals</a>
-                <a href="#services" class="btn btn-secondary">Learn More</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <!-- <div class="container">
-            <div style="max-width: 900px; margin: 0 auto 4rem auto; position: relative; padding-bottom: 56.25%; height: 0;">
-                <iframe src="https://www.loom.com/embed/9cb584e1e2084131ac10b14707d991d6?sid=546237ac-1e9c-49e2-b6eb-150eca48a4c9" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px;"></iframe>
-            </div>-->
-            
-            <h2>Our Services</h2>
-            <div class="service-grid">
-                <div class="service-card">
-                    <div class="service-icon">💰</div>
-                    <h3>Pay Per Referral</h3>
-                    <p>Only pay for qualified referrals that we deliver. <span class="highlight">No upfront costs, no monthly retainers.</span> Our performance-based model means you only invest when we bring you real opportunities.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🎨</div>
-                    <h3>Website Design</h3>
-                    <p><span class="highlight">Professional, conversion-optimized websites</span> that showcase your business. Modern designs that attract customers and drive results for your brand.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">📢</div>
-                    <h3>Ads & SEO</h3>
-                    <p>Targeted advertising campaigns combined with <span class="highlight">strategic SEO optimization.</span> We create ads that <span class="highlight">reach your ideal customers</span> while boosting your organic visibility in search results.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🤖</div>
-                    <h3>AI Agents</h3>
-                    <p><span class="highlight">Intelligent automation</span> that works 24/7 for your business. AI-powered solutions that handle customer inquiries, qualify referrals, and streamline your operations.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Blue Obsidian</h2>
-            
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Founded in 2025</h3>
-                    <p>Blue Obsidian was created to solve a fundamental problem in business growth: high customer acquisition costs with unpredictable results. We believe <span class="highlight">businesses should only pay for what works.</span></p>
-                    <p>Our <span class="highlight">performance-based model eliminates risk</span> and aligns our success with yours. <span class="highlight">When you win, we win.</span></p>
-                </div>
-                <div class="about-image">
-                    <img src="IMG_0561.jpg" alt="Blue Obsidian Team">
-                </div>
-            </div>
-
-            <!--<div class="founders">
-                <h3>Meet Our Founders</h3>
-                <div class="founder-grid">
-                    <div class="founder-card">
-                        <div class="founder-photo">
-                            <img src="17290049163851.png" alt="Calil Hall">
-                        </div>
-                        <h4>Calil Hall</h4>
-                        <p class="founder-title">Co-Founder</p>
-                        <p>Passionate about connecting businesses and creating win-win partnerships that drive sustainable growth.</p>
-                    </div>
-
-                    <div class="founder-card">
-                        <div class="founder-photo">
-                            <img src="companystoryimg11.png" alt="Angelo Brown">
-                        </div>
-                        <h4>Angelo Brown</h4>
-                        <p class="founder-title">Co-Founder</p>
-                        <p>Dedicated to revolutionizing how local businesses find and retain customers through strategic partnerships.</p>
-                    </div>
-                </div>
-            </div>-->
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2>What Our Clients Say</h2>
-            <div class="testimonial-grid">
-                <!-- Marcus Chen -->
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-image">
-                            <img src="Marcus_Chen.png" alt="Marcus Chen">
-                        </div>
-                        <div class="testimonial-info">
-                            <h4>Marcus Chen</h4>
-                            <p>Owner</p>
-                            <p class="testimonial-business">Chen Financial Consulting</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote">
-                        We started using Blue Obsidian.io six months ago and I'm pleased with the results. We're getting 5-8 qualified leads per week, and about half of those convert to consultations. It's been a solid addition to our marketing mix.
-                    </div>
-                </div>
-
-                <!-- Dr. Patricia Kowalski -->
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-image">
-                            <img src="Patricia_Kowalski.png" alt="Dr. Patricia Kowalski">
-                        </div>
-                        <div class="testimonial-info">
-                            <h4>Dr. Patricia Kowalski</h4>
-                            <p>Owner</p>
-                            <p class="testimonial-business">Riverside Family Dental</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote">
-                        I was skeptical about pay-per-lead services, but after three months with Blue Obsidian.io, my practice has gained 12 new patients. The leads are local and pre-screened, which saves me a lot of time on unqualified calls.
-                    </div>
-                </div>
-
-                <!-- Jake Morrison -->
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-image">
-                            <img src="Jake_Morrison.png" alt="Jake Morrison">
-                        </div>
-                        <div class="testimonial-info">
-                            <h4>Jake Morrison</h4>
-                            <p>Owner</p>
-                            <p class="testimonial-business">Morrison's HVAC & Heating</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote">
-                        Been using Blue Obsidian.io for about four months now. Pretty happy with it! I'm getting maybe 3-5 calls a week, and I'd say half of those turn into actual jobs. Definitely beats my old marketing.
-                    </div>
-                </div>
-
-                <!-- Amanda Richter -->
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-image">
-                            <img src="Amanda_Richter.png" alt="Amanda Richter">
-                        </div>
-                        <div class="testimonial-info">
-                            <h4>Amanda Richter</h4>
-                            <p>Owner</p>
-                            <p class="testimonial-business">Richter Financial Planning</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote">
-                        I partnered with Blue Obsidian.io in January, and by March I had added 8 new clients. The leads are genuinely interested in financial planning, not just browsing around. Quality has been consistent.
-                    </div>
-                </div>
-
-                <!-- Tommy Vasquez -->
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-image">
-                            <img src="Tommy_Vasquez.png" alt="Tommy Vasquez">
-                        </div>
-                        <div class="testimonial-info">
-                            <h4>Tommy Vasquez</h4>
-                            <p>Owner</p>
-                            <p class="testimonial-business">Tommy's Landscaping & Design</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote">
-                        Yo, I signed up with Blue Obsidian.io like two months ago and it's working out pretty good. I'm getting calls from people who want real landscaping work, not just basic stuff. Landed a couple nice jobs from it!
-                    </div>
-                </div>
-
-                <!-- Sarah Chen -->
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-image">
-                            <img src="Sarah_Chen.png" alt="Sarah Chen">
-                        </div>
-                        <div class="testimonial-info">
-                            <h4>Sarah Chen</h4>
-                            <p>Owner</p>
-                            <p class="testimonial-business">Paws & Claws Pet Grooming</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote">
-                        I've been with Blue Obsidian.io for a few months and I'm really happy! My appointment book has definitely filled up more. Getting like 2-3 new clients a week, which is exactly what I needed.
-                    </div>
-                </div>
-
-                <!-- Emily Rodriguez -->
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-image">
-                            <img src="Emily_Rodriguez.png" alt="Emily Rodriguez">
-                        </div>
-                        <div class="testimonial-info">
-                            <h4>Emily Rodriguez</h4>
-                            <p>Owner</p>
-                            <p class="testimonial-business">Emily's Bake Shop</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote">
-                        I started using Blue Obsidian.io for my custom cakes and it's been really helpful! I went from getting maybe one inquiry a week to three or four. Just booked two wedding cakes, which is exciting!
-                    </div>
-                </div>
-
-                <!-- Connor Walsh -->
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-image">
-                            <img src="Connor_Walsh.png" alt="Connor Walsh">
-                        </div>
-                        <div class="testimonial-info">
-                            <h4>Connor Walsh</h4>
-                            <p>Owner</p>
-                            <p class="testimonial-business">Walsh Mobile Auto Detailing</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote">
-                        Blue Obsidian.io has been pretty solid, not gonna lie. I'm getting more calls than when I was doing my own thing. Maybe book half the leads they send me. Worth what I'm paying for sure.
-                    </div>
-                </div>
-
-                <!-- Darius Jackson -->
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-image">
-                            <img src="Darius_Jackson.png" alt="Darius Jackson">
-                        </div>
-                        <div class="testimonial-info">
-                            <h4>Darius Jackson</h4>
-                            <p>Owner</p>
-                            <p class="testimonial-business">DJ's Barbershop</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote">
-                        I signed up with Blue Obsidian.io three months back and I've been getting like 6-8 new clients a month. Some of them become regulars which is cool. It's working out good so far.
-                    </div>
-                </div>
-
-                <!-- Keisha Williams -->
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-image">
-                            <img src="Keisha_Williams.png" alt="Keisha Williams">
-                        </div>
-                        <div class="testimonial-info">
-                            <h4>Keisha Williams</h4>
-                            <p>Owner</p>
-                            <p class="testimonial-business">Keisha's Cleaning Co.</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote">
-                        Blue Obsidian.io has been really helpful! I went from having open slots to being pretty much booked. Got about 10 new clients in the last couple months, and a few want regular weekly cleaning. Really happy!
-                    </div>
-                </div>
-
-                <!-- Barbara Henderson -->
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-image">
-                            <img src="Barbara_Henderson.png" alt="Barbara Henderson">
-                        </div>
-                        <div class="testimonial-info">
-                            <h4>Barbara Henderson</h4>
-                            <p>Owner</p>
-                            <p class="testimonial-business">Henderson Insurance Agency</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote">
-                        We've been working with Blue Obsidian.io for eight months now. The quality is good—these are actual people shopping for policies, not just tire-kickers. We've written about 18 new policies with a decent close rate.
-                    </div>
-                </div>
-
-                <!-- Robert Mitchell -->
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-image">
-                            <img src="Robert_Mitchell.png" alt="Robert Mitchell">
-                        </div>
-                        <div class="testimonial-info">
-                            <h4>Robert Mitchell</h4>
-                            <p>Owner</p>
-                            <p class="testimonial-business">Mitchell CPA Services</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote">
-                        Blue Obsidian.io has been a solid investment for my practice. During tax season, I acquired 14 new business clients, and most of them have stayed on for ongoing services. The ROI makes sense for my business model.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Ready to Grow?</h2>
-            <p>Join our network of successful local businesses. <span class="highlight">No retainer, no risk, just results.</span></p>
-            
-            <div class="contact-container">
-                <form class="contact-form" id="contactForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>First Name</label>
-                            <input type="text" required placeholder="John">
-                        </div>
-                        <div class="form-group">
-                            <label>Last Name</label>
-                            <input type="text" required placeholder="Doe">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Business Name</label>
-                        <input type="text" required placeholder="Your Business">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" required placeholder="you@business.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Phone</label>
-                        <input type="tel" required placeholder="(555) 123-4567">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Industry</label>
-                        <select required>
-                            <option value="">Select your industry</option>
-                            <option>Professional Services</option>
-                            <option>Home Services</option>
-                            <option>Retail</option>
-                            <option>Healthcare</option>
-                            <option>Real Estate</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Tell us about your business</label>
-                        <textarea rows="4" required placeholder="What services do you offer? Who is your ideal customer?"></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-submit">Get Started Today</button>
-                </form>
-
-                <div class="calendar-placeholder">
-                    <p>[Calendar Placeholder: Add your booking calendar here]</p>
-                </div>
+                <a href="contact.html" class="btn-primary">
+                    Contact Us
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="services.html" class="btn-secondary">View All Services</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="logo">Blue Obsidian.io</div>
-            <p><span class="highlight">Pay-per-Referral</span> service with no retainer fees</p>
-            <p>© 2025 Blue Obsidian.io. All rights reserved</p>
+    <footer class="footer">
+        <div class="footer-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 120" width="28" height="35">
+                        <polygon points="40,5 70,30 65,95 40,115 15,95 10,30" fill="#0a3d5c"/>
+                        <polygon points="40,5 70,30 65,95 40,60" fill="#0c4a6e"/>
+                        <polygon points="40,60 65,95 40,115" fill="#0a3d5c"/>
+                        <polygon points="40,60 15,95 40,115" fill="#1e6a8a"/>
+                        <polygon points="40,5 10,30 15,95 40,60" fill="#1a7a9a"/>
+                        <polygon points="40,5 18,35 25,65 40,45" fill="#00d4ff"/>
+                        <polygon points="25,65 15,95 40,60" fill="#00b8e0"/>
+                        <polygon points="40,5 62,35 55,50 40,45" fill="#1a5a7a"/>
+                        <polygon points="55,50 62,35 70,30 65,95 40,60" fill="#0d4a60"/>
+                        <polygon points="40,45 25,65 40,60 55,50" fill="#0099cc" opacity="0.9"/>
+                    </svg>
+                </div>
+                <div class="logo-text">Blue<span>Obsidian</span></div>
+            </a>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <p class="footer-copyright">© 2026 BlueObsidian IO. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
 
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your interest! We will contact you shortly.');
-            this.reset();
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-section, .tool-card, .org-feature').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
         });
     </script>
 </body>
