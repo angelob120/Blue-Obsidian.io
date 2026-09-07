@@ -857,6 +857,259 @@
                 gap: 1.5rem;
             }
         }
+
+        /* Footer identity block - the company behind the messaging program */
+        .footer-identity {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.7;
+            max-width: 640px;
+        }
+
+        .footer-identity strong {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .footer-identity a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .footer-identity a:hover {
+            color: var(--blue-light);
+        }
+
+        .footer-sms-note {
+            margin-top: 0.75rem;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            opacity: 0.85;
+        }
+
+        /* SMS consent checkbox on the contact form */
+        .consent-group {
+            display: flex;
+            gap: 0.85rem;
+            align-items: flex-start;
+            padding: 1.1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .consent-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            margin-top: 0.15rem;
+            accent-color: var(--blue-primary);
+            cursor: pointer;
+        }
+
+        .consent-group label {
+            font-size: 0.83rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        .consent-group a {
+            color: var(--blue-light);
+            text-decoration: underline;
+        }
+
+        .consent-note {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-top: -0.4rem;
+        }
+
+        /* Legal prose pages */
+        .legal-section {
+            padding: 2rem 2rem 6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .legal-container {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .legal-summary {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            background: var(--bg-card);
+            margin-bottom: 2.5rem;
+        }
+
+        .legal-updated {
+            display: inline-block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .legal-toc {
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+            background: var(--bg-card);
+        }
+
+        .legal-toc h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .legal-toc ol {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 0.5rem 1.5rem;
+        }
+
+        .legal-toc a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .legal-toc a:hover {
+            color: var(--blue-light);
+        }
+
+        .legal-block {
+            margin-bottom: 3rem;
+            scroll-margin-top: 100px;
+        }
+
+        .legal-block h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .legal-block p {
+            color: var(--text-secondary);
+            line-height: 1.85;
+            margin-bottom: 1.1rem;
+        }
+
+        .legal-block ul {
+            list-style: none;
+            margin-bottom: 1.1rem;
+        }
+
+        .legal-block ul li {
+            color: var(--text-secondary);
+            line-height: 1.85;
+            padding-left: 1.6rem;
+            position: relative;
+            margin-bottom: 0.6rem;
+        }
+
+        .legal-block ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.75em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--blue-light);
+        }
+
+        .legal-block a {
+            color: var(--blue-light);
+            text-decoration: none;
+            word-break: break-word;
+        }
+
+        .legal-block a:hover {
+            text-decoration: underline;
+        }
+
+        /* The sentences a carrier reviewer is looking for. Set apart so they
+           are not missed on a skim. */
+        .legal-callout {
+            border-left: 3px solid var(--blue-primary);
+            background: linear-gradient(90deg, rgba(0,102,255,0.08), transparent);
+            padding: 1.15rem 1.35rem;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 1.35rem;
+            color: var(--text-primary);
+            line-height: 1.8;
+            font-size: 0.97rem;
+        }
+
+        .legal-table-wrap {
+            overflow-x: auto;
+            margin-bottom: 1.35rem;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+        }
+
+        .legal-block table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            min-width: 480px;
+        }
+
+        .legal-block th {
+            text-align: left;
+            padding: 0.9rem 1.1rem;
+            background: rgba(255,255,255,0.03);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.8rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .legal-block td {
+            padding: 0.9rem 1.1rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-color);
+            line-height: 1.7;
+            vertical-align: top;
+        }
+
+        .legal-block tr:last-child td {
+            border-bottom: none;
+        }
+
+        @media (max-width: 768px) {
+            .legal-section {
+                padding: 1rem 1.25rem 4rem;
+            }
+
+            .legal-toc ol {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -992,7 +1245,7 @@
                     <div class="org-feature-icon">💻</div>
                     <div class="org-feature-content">
                         <h4>Modern Tech Stack</h4>
-                        <p>Web, mobile, AI — career-ready skills training</p>
+                        <p>Web, mobile, AI. Career-ready skills training</p>
                     </div>
                 </div>
                 <div class="org-feature">
@@ -1139,7 +1392,7 @@
                 <span class="gradient-text">Start Building.</span>
             </h2>
             <p class="cta-description">
-                Whether you're looking to become a certified drone pilot or launch a career in software development — BlueObsidian IO has the training programs to get you there.
+                Whether you're looking to become a certified drone pilot or launch a career in software development, BlueObsidian IO has the training programs to get you there.
             </p>
             <div class="hero-buttons">
                 <a href="contact.html" class="btn-primary">
@@ -1178,8 +1431,17 @@
                 <li><a href="services.html">Services</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+                <li><a href="sms.html">Text Messaging Terms</a></li>
             </ul>
-            <p class="footer-copyright">© 2026 BlueObsidian IO. All rights reserved.</p>
+            <div class="footer-identity">
+                <p><strong>blueobsidian io LLC</strong>, trading as BlueObsidian IO</p>
+                <p>11000 W McNichols Rd, Ste 323, Detroit, MI 48221, United States</p>
+                <p><a href="tel:+13136713685">(313) 671-3685</a> &middot; <a href="mailto:angelobrown1000@gmail.com">angelobrown1000@gmail.com</a></p>
+                <p class="footer-sms-note">Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe, HELP for help. Consent is not a condition of purchase.</p>
+            </div>
+            <p class="footer-copyright">&copy; 2026 BlueObsidian IO. All rights reserved.</p>
         </div>
     </footer>
 
@@ -1224,5 +1486,6 @@
             observer.observe(el);
         });
     </script>
+    <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a9e2124ba70a028e78b6813" data-source="WEB_USER"></script>
 </body>
 </html>

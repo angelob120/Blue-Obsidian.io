@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | BlueObsidian IO - Detroit Workforce Development</title>
+    <title>Terms of Service | BlueObsidian IO</title>
+    <meta name="description" content="The agreement between you and us when you use this website, ask us about a program, or enroll in one. Written to be read rather than to be survived.">
+    <link rel="canonical" href="https://blueobsidian.io/terms.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -240,224 +242,51 @@
             line-height: 1.7;
         }
 
-        /* Story Section */
-        .story-section {
-            padding: 6rem 2rem;
+        /* Contact Section */
+        .contact-section {
+            padding: 4rem 2rem 8rem;
             position: relative;
             z-index: 1;
             background: var(--bg-primary);
-            border-top: 1px solid var(--border-color);
         }
 
-        .story-container {
+        .contact-container {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
-            align-items: center;
         }
 
-        .story-content h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-
-        .story-content p {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .story-visual {
-            position: relative;
-        }
-
-        .story-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        .story-card-header {
+        /* Contact Info */
+        .contact-info {
             display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 16px;
-            background: rgba(255,255,255,0.02);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .card-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .card-dot.red { background: #ff5f57; }
-        .card-dot.yellow { background: #ffbd2e; }
-        .card-dot.green { background: #28ca41; }
-
-        .story-card-image {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-        }
-
-        /* Mission Section */
-        .mission-section {
-            padding: 6rem 2rem;
-            position: relative;
-            z-index: 1;
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border-color);
-        }
-
-        .mission-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .mission-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .mission-header h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .mission-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            flex-direction: column;
             gap: 2rem;
         }
 
-        .mission-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .mission-card:hover {
-            border-color: rgba(0, 168, 255, 0.3);
-            transform: translateY(-5px);
-        }
-
-        .mission-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, rgba(0, 102, 255, 0.2), rgba(0, 212, 255, 0.1));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .contact-info h2 {
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.8rem;
-            margin: 0 auto 1.5rem;
-        }
-
-        .mission-card h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .mission-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        /* Stats Section */
-        .stats-section {
-            padding: 6rem 2rem;
-            position: relative;
-            z-index: 1;
-            background: var(--bg-primary);
-            border-top: 1px solid var(--border-color);
-        }
-
-        .stats-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--blue-light), var(--cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
             margin-bottom: 0.5rem;
         }
 
-        .stat-label {
+        .contact-info > p {
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            line-height: 1.7;
         }
 
-        /* Experience Section */
-        .experience-section {
-            padding: 6rem 2rem;
-            position: relative;
-            z-index: 1;
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border-color);
-        }
-
-        .experience-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .experience-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .experience-header h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .experience-header p {
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .experience-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        .experience-card {
+        .contact-methods {
             display: flex;
+            flex-direction: column;
             gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .contact-method {
+            display: flex;
+            gap: 1rem;
             padding: 1.5rem;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -465,11 +294,11 @@
             transition: all 0.3s ease;
         }
 
-        .experience-card:hover {
+        .contact-method:hover {
             border-color: rgba(0, 168, 255, 0.3);
         }
 
-        .experience-icon {
+        .contact-method-icon {
             width: 50px;
             height: 50px;
             background: linear-gradient(135deg, rgba(0, 102, 255, 0.2), rgba(0, 212, 255, 0.1));
@@ -481,155 +310,225 @@
             flex-shrink: 0;
         }
 
-        .experience-content h3 {
+        .contact-method-content h3 {
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 0.25rem;
         }
 
-        .experience-content p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
+        .contact-method-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
 
-        /* Partners Section */
-        .partners-section {
-            padding: 6rem 2rem;
-            position: relative;
-            z-index: 1;
-            background: var(--bg-primary);
-            border-top: 1px solid var(--border-color);
+        .contact-method-content a {
+            color: var(--cyan);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
         }
 
-        .partners-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
+        .contact-method-content a:hover {
+            opacity: 0.8;
         }
 
-        .partners-header {
-            margin-bottom: 3rem;
-        }
-
-        .partners-header h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .partners-grid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 4rem;
-            flex-wrap: wrap;
-        }
-
-        .partner-item {
-            padding: 1.5rem 2rem;
+        /* Contact Form */
+        .contact-form-wrapper {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 10px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-secondary);
+            border-radius: 16px;
+            padding: 2.5rem;
         }
 
-        /* CTA Section */
-        .cta-section {
-            padding: 8rem 2rem;
-            text-align: center;
-            position: relative;
-            border-top: 1px solid var(--border-color);
-            z-index: 1;
-            background: var(--bg-primary);
-        }
-
-        .cta-bg {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at center, rgba(0, 102, 255, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 10;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .cta-label {
-            font-size: 0.85rem;
-            color: var(--cyan);
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .cta-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta-description {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
+        .contact-form-header {
             margin-bottom: 2rem;
         }
 
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
+        .contact-form-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
         }
 
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
+        .contact-form-header p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
             gap: 0.5rem;
-            padding: 0.85rem 1.75rem;
-            background: var(--text-primary);
-            color: var(--bg-primary);
-            text-decoration: none;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.9rem 1rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
             border-radius: 8px;
-            font-weight: 600;
+            color: var(--text-primary);
+            font-family: inherit;
             font-size: 0.95rem;
             transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
         }
 
-        .btn-primary:hover {
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--blue-light);
+            box-shadow: 0 0 0 3px rgba(0, 168, 255, 0.1);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23a1a1aa' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
+        }
+
+        .form-group select option {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
             opacity: 0.9;
             transform: translateY(-2px);
         }
 
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.85rem 1.75rem;
-            background: transparent;
-            color: var(--text-primary);
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            cursor: pointer;
+        /* FAQ Section */
+        .faq-section {
+            padding: 6rem 2rem;
+            position: relative;
+            z-index: 1;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
         }
 
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.2);
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .faq-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--cyan);
+        }
+
+        .faq-question svg {
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer-content {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
         }
 
         /* Footer */
@@ -675,21 +574,9 @@
 
         /* Mobile Responsive */
         @media (max-width: 1024px) {
-            .story-container {
+            .contact-container {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .mission-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .experience-grid {
-                grid-template-columns: 1fr;
+                gap: 3rem;
             }
         }
 
@@ -715,22 +602,8 @@
                 display: flex;
             }
 
-            .mission-grid {
+            .form-row {
                 grid-template-columns: 1fr;
-            }
-
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-
-            .stat-number {
-                font-size: 2.5rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
             }
 
             .footer-container {
@@ -742,11 +615,8 @@
                 flex-wrap: wrap;
                 justify-content: center;
             }
-
-            .partners-grid {
-                gap: 1.5rem;
-            }
         }
+
 
         /* Footer identity block - the company behind the messaging program */
         .footer-identity {
@@ -1006,7 +876,6 @@
     <!-- Grid Background -->
     <div class="grid-bg"></div>
 
-    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
@@ -1030,7 +899,7 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="contact.html" class="nav-cta">Contact</a></li>
             </ul>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
@@ -1044,185 +913,122 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="page-header-bg"></div>
-        <span class="page-label animate-fade-up">Who We Are</span>
+        <span class="page-label animate-fade-up">Terms</span>
         <h1 class="page-title animate-fade-up delay-1">
-            About <span class="gradient-text">BlueObsidian.</span>
+            Terms of <span class="gradient-text">Service.</span>
         </h1>
         <p class="page-subtitle animate-fade-up delay-2">
-            Detroit-based workforce development company building the next generation of skilled professionals in drone operations and software development.
+            The agreement between you and us when you use this website, ask us about a program, or enroll in one. Written to be read rather than to be survived.
         </p>
     </section>
 
-    <!-- Story Section -->
-    <section class="story-section">
-        <div class="story-container">
-            <div class="story-content">
-                <span class="page-label">Our Story</span>
-                <h2>Building <span class="gradient-text">Tomorrow's Workforce.</span></h2>
-                <p>
-                    BlueObsidian IO was founded with a simple mission: to bridge the gap between emerging technology and workforce readiness. Based in Detroit, Michigan, we recognized the growing demand for skilled drone pilots and software developers, and the lack of accessible, high-quality training programs to meet that demand.
-                </p>
-                <p>
-                    With over 5 years of professional experience in UAS operations and a proven track record across 6+ training organizations, our founder set out to create a workforce development company that combines expert instruction with innovative technology.
-                </p>
-                <p>
-                    Today, BlueObsidian IO serves high schools, community colleges, law enforcement agencies, and individual students seeking to launch careers in these rapidly growing fields. Our proprietary training app and hands-on approach have resulted in a 98% FAA Part 107 exam pass rate, one of the highest in the industry.
-                </p>
+    <!-- Document -->
+    <section class="legal-section">
+        <div class="legal-container">
+            <span class="legal-updated">Last updated 2026-09-07</span>
+
+            <nav class="legal-toc" aria-label="On this page">
+                <h2>On this page</h2>
+                <ol>
+                    <li><a href="#who">1. Who you are agreeing with</a></li>
+                    <li><a href="#services">2. What we provide</a></li>
+                    <li><a href="#eligibility">3. Eligibility</a></li>
+                    <li><a href="#enrollment">4. Enrollment and payment</a></li>
+                    <li><a href="#conduct">5. Your conduct in a program</a></li>
+                    <li><a href="#materials">6. Course materials</a></li>
+                    <li><a href="#site">7. Using this website</a></li>
+                    <li><a href="#messaging">8. Calls, texts and emails</a></li>
+                    <li><a href="#liability">9. Liability</a></li>
+                    <li><a href="#changes">10. Changes to these terms</a></li>
+                    <li><a href="#law">11. Governing law</a></li>
+                    <li><a href="#contact">12. Contact and notices</a></li>
+                </ol>
+            </nav>
+
+            <div class="legal-block" id="who">
+                <h2>1. Who you are agreeing with</h2>
+                <p>This website, https://blueobsidian.io, is operated by blueobsidian io LLC, a limited liability company registered in Michigan, United States, trading as BlueObsidian IO. Its registered address is 11000 W McNichols Rd, Ste 323, Detroit, MI 48221, United States.</p>
+                <p>By using this site, sending us an enquiry, or enrolling in a program, you agree to these terms. If you do not agree to them, do not use the site.</p>
             </div>
-            <div class="story-visual">
-                <div class="story-card">
-                    <div class="story-card-header">
-                        <span class="card-dot red"></span>
-                        <span class="card-dot yellow"></span>
-                        <span class="card-dot green"></span>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&q=80" alt="Technology and Innovation" class="story-card-image">
-                </div>
+
+            <div class="legal-block" id="services">
+                <h2>2. What we provide</h2>
+                <p>We are a workforce development company. We provide training in commercial drone operation, preparation for the FAA Part 107 remote pilot certificate, public safety UAS operation, and software development, delivered to individuals, schools, agencies and employers.</p>
+                <div class="legal-callout">We are a training provider. We are not the Federal Aviation Administration, we do not issue any FAA certificate, and we cannot grant, expedite or guarantee one. The FAA sets the exam, administers it, and decides the result. What we sell is preparation for it.</div>
+                <p>Descriptions of courses, schedules and outcomes on this site are provided in good faith and may change. Pass rates and placement figures describe past students and are not a promise about you. Nothing on this site is a guarantee of certification, employment, or any particular income.</p>
+            </div>
+
+            <div class="legal-block" id="eligibility">
+                <h2>3. Eligibility</h2>
+                <p>You must be 18 or older to enroll with us directly. Students under 18 may take part through a school, agency or employer that has enrolled them and holds the necessary consent from a parent or guardian.</p>
+                <p>Some programs have prerequisites set by us or by the FAA, including requirements about age, language, and physical and mental condition for certification. We will tell you the prerequisites before you pay. Meeting ours does not mean you meet the FAA's.</p>
+            </div>
+
+            <div class="legal-block" id="enrollment">
+                <h2>4. Enrollment and payment</h2>
+                <p>A place is reserved when we confirm it and payment has been made or an agreed payment plan has started. Prices are quoted in US dollars and include the tuition described in your enrollment confirmation. FAA testing fees are set and collected by the FAA testing centre, are not ours, and are not included unless we say so in writing.</p>
+                <p>If we cancel or reschedule a session, you may move to the next available session or have that session refunded. Your rights under any separate written agreement with your school, agency or employer come first where they conflict with this page.</p>
+            </div>
+
+            <div class="legal-block" id="conduct">
+                <h2>5. Your conduct in a program</h2>
+                <p>Flying an aircraft is the part of this where somebody can get hurt, so it is the part with rules.</p>
+                <ul>
+                    <li>Follow the instructor's directions and the safety briefing at all times.</li>
+                    <li>Fly only where and when you are told to, and never over people or moving vehicles.</li>
+                    <li>Do not attend impaired by alcohol, drugs, or medication that affects your judgement.</li>
+                    <li>Tell us about a medical condition that could affect your safety or anyone else's.</li>
+                    <li>Treat the equipment as though you will be paying for it, because if you damage it through misuse you will be.</li>
+                </ul>
+                <p>We may remove you from a session or a program for conduct that puts somebody at risk, and for behaviour that makes the program unworkable for the other students. Where we remove you for safety reasons we will refund the sessions you have not taken.</p>
+            </div>
+
+            <div class="legal-block" id="materials">
+                <h2>6. Course materials</h2>
+                <p>Course materials, slides, recordings and question banks are ours or are licensed to us. You get a personal, non-transferable licence to use them to study. You may not copy them, publish them, sell them, or use them to run your own course.</p>
+            </div>
+
+            <div class="legal-block" id="site">
+                <h2>7. Using this website</h2>
+                <p>Do not attempt to break into it, overload it, scrape it at a volume that degrades it for anybody else, or use it to send anything unlawful. Do not submit somebody else's contact details as though they were your own, which is the specific thing that gets a phone number texted by mistake.</p>
+            </div>
+
+            <div class="legal-block" id="messaging">
+                <h2>8. Calls, texts and emails</h2>
+                <p>If you tick the consent box on our contact form or in our chat widget, you agree to the Text Messaging Terms at <a href="https://blueobsidian.io/sms.html">https://blueobsidian.io/sms.html</a>, which form part of this agreement. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe and HELP for help.</p>
+                <div class="legal-callout">Consent to marketing calls or texts is not a condition of purchase. You can enroll in and pay for any program without agreeing to receive any of them.</div>
+                <p>We will still send you the messages that go with a course you enrolled in, such as a schedule or a cancellation. How we handle your information is described at <a href="https://blueobsidian.io/privacy.html">https://blueobsidian.io/privacy.html</a>.</p>
+            </div>
+
+            <div class="legal-block" id="liability">
+                <h2>9. Liability</h2>
+                <p>We provide our programs with reasonable skill and care. To the extent the law allows, our total liability to you for anything arising out of a program or this website is limited to what you paid us for that program.</p>
+                <p>We do not limit liability for death or personal injury caused by our negligence, for fraud, or for anything else the law does not let us limit. Nothing here affects rights you have as a consumer that cannot be signed away.</p>
+            </div>
+
+            <div class="legal-block" id="changes">
+                <h2>10. Changes to these terms</h2>
+                <p>We may update these terms. The date at the top of this page is the date of the current version. A change does not apply retroactively to a program you have already paid for.</p>
+            </div>
+
+            <div class="legal-block" id="law">
+                <h2>11. Governing law</h2>
+                <p>These terms are governed by the law of the State of Michigan, United States, and the courts there have jurisdiction, without affecting any right you have to bring a claim where you live.</p>
+            </div>
+
+            <div class="legal-block" id="contact">
+                <h2>12. Contact and notices</h2>
+                <p>blueobsidian io LLC, trading as BlueObsidian IO. 11000 W McNichols Rd, Ste 323, Detroit, MI 48221, United States. Email <a href="mailto:angelobrown1000@gmail.com">angelobrown1000@gmail.com</a>. Telephone (313) 671-3685.</p>
+                <p>Email is a valid way to give us notice under these terms, and the postal address above is the one to use if you would rather write.</p>
             </div>
         </div>
     </section>
 
-    <!-- Mission Section -->
-    <section class="mission-section">
-        <div class="mission-container">
-            <div class="mission-header">
-                <span class="page-label">What Drives Us</span>
-                <h2>Our <span class="gradient-text">Mission & Values.</span></h2>
-            </div>
-            <div class="mission-grid">
-                <div class="mission-card">
-                    <div class="mission-icon">🎯</div>
-                    <h3>Mission</h3>
-                    <p>
-                        To empower individuals with the skills and certifications needed to succeed in the drone and technology industries through expert-led training and innovative educational tools.
-                    </p>
-                </div>
-                <div class="mission-card">
-                    <div class="mission-icon">👁️</div>
-                    <h3>Vision</h3>
-                    <p>
-                        To be the leading workforce development provider in Michigan, creating pathways to high-demand careers while strengthening our local communities and economy.
-                    </p>
-                </div>
-                <div class="mission-card">
-                    <div class="mission-icon">💎</div>
-                    <h3>Values</h3>
-                    <p>
-                        Excellence in education, hands-on practical experience, community impact, continuous innovation, and student success above all else.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="stats-container">
-            <div class="stat-item">
-                <div class="stat-number">98%</div>
-                <div class="stat-label">FAA Part 107 Pass Rate</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">5+</div>
-                <div class="stat-label">Years of Experience</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">6+</div>
-                <div class="stat-label">Training Organizations</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Commitment to Students</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section class="experience-section">
-        <div class="experience-container">
-            <div class="experience-header">
-                <span class="page-label">Credentials</span>
-                <h2>Experience & <span class="gradient-text">Background.</span></h2>
-                <p>Our team brings years of professional experience and a proven track record of success.</p>
-            </div>
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <div class="experience-icon">🎓</div>
-                    <div class="experience-content">
-                        <h3>Monroe Community College</h3>
-                        <p>Lead UAS Instructor, Part 107 certification courses</p>
-                    </div>
-                </div>
-                <div class="experience-card">
-                    <div class="experience-icon">🔬</div>
-                    <div class="experience-content">
-                        <h3>NewLab Detroit</h3>
-                        <p>Drone training and workforce development programs</p>
-                    </div>
-                </div>
-                <div class="experience-card">
-                    <div class="experience-icon">⭐</div>
-                    <div class="experience-content">
-                        <h3>Multiple Training Providers</h3>
-                        <p>Top-rated instructor across 6+ organizations</p>
-                    </div>
-                </div>
-                <div class="experience-card">
-                    <div class="experience-icon">📱</div>
-                    <div class="experience-content">
-                        <h3>Proprietary Training App</h3>
-                        <p>Custom-built educational technology solutions</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partners Section -->
-    <section class="partners-section">
-        <div class="partners-container">
-            <div class="partners-header">
-                <h2>Trusted By Organizations Like</h2>
-            </div>
-            <div class="partners-grid">
-                <div class="partner-item">High Schools</div>
-                <div class="partner-item">Community Colleges</div>
-                <div class="partner-item">Law Enforcement</div>
-                <div class="partner-item">Public Safety Agencies</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-bg"></div>
-        <div class="cta-content">
-            <p class="cta-label">Join Our Programs</p>
-            <h2 class="cta-title">
-                Ready to Start<br>
-                <span class="gradient-text">Your Journey?</span>
-            </h2>
-            <p class="cta-description">
-                Whether you're looking to become a certified drone pilot or launch a career in software development, we're here to help you succeed.
-            </p>
-            <div class="cta-buttons">
-                <a href="contact.html" class="btn-primary">
-                    Contact Us
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-                <a href="services.html" class="btn-secondary">View Programs</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
             <a href="index.html" class="logo">
                 <div class="logo-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 120" width="28" height="35">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 120" width="32" height="40">
                         <polygon points="40,5 70,30 65,95 40,115 15,95 10,30" fill="#0a3d5c"/>
                         <polygon points="40,5 70,30 65,95 40,60" fill="#0c4a6e"/>
                         <polygon points="40,60 65,95 40,115" fill="#0a3d5c"/>
@@ -1233,6 +1039,7 @@
                         <polygon points="40,5 62,35 55,50 40,45" fill="#1a5a7a"/>
                         <polygon points="55,50 62,35 70,30 65,95 40,60" fill="#0d4a60"/>
                         <polygon points="40,45 25,65 40,60 55,50" fill="#0099cc" opacity="0.9"/>
+                        <polygon points="40,8 22,33 26,38 40,18" fill="#4de8ff" opacity="0.4"/>
                     </svg>
                 </div>
                 <div class="logo-text">Blue<span>Obsidian</span></div>
@@ -1270,33 +1077,12 @@
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
-        
+
         mobileMenuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
-
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.mission-card, .experience-card, .stat-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
     </script>
+
     <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a9e2124ba70a028e78b6813" data-source="WEB_USER"></script>
 </body>
 </html>
