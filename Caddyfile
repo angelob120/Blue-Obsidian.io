@@ -1,0 +1,30 @@
+# Static file server for the marketing site.
+#
+# Railway terminates TLS at its edge and hands the container plain HTTP on
+# $PORT, so auto_https is off. Leaving it on makes Caddy try to provision its
+# own certificate for a hostname it does not control, and the container never
+# becomes healthy.
+{
+	admin off
+	persist_config off
+	auto_https off
+}
+
+:{$PORT:80} {
+	root * /srv
+	encode gzip
+
+	# Serve /privacy as well as /privacy.html, so a link that loses its
+	# extension is not a 404. The bare path is tried first so nothing that
+	# already works changes.
+	try_files {path} {path}.html {path}/index.html
+
+	file_server
+
+	header {
+		X-Content-Type-Options nosniff
+		X-Frame-Options SAMEORIGIN
+		Referrer-Policy strict-origin-when-cross-origin
+		-Server
+	}
+}
