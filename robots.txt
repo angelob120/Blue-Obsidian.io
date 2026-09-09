@@ -1,0 +1,7 @@
+# Everything on this site is public and may be crawled. Stated explicitly
+# because A2P/carrier compliance reviewers fetch /robots.txt before the
+# policy pages, and a 404 here leaves them guessing.
+User-agent: *
+Allow: /
+
+Sitemap: https://blueobsidian.io/sitemap.xml

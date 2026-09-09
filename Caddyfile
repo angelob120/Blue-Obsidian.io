@@ -14,17 +14,40 @@
 	root * /srv
 	encode gzip
 
-	# Serve /privacy as well as /privacy.html, so a link that loses its
-	# extension is not a 404. The bare path is tried first so nothing that
-	# already works changes.
-	try_files {path} {path}.html {path}/index.html
-
-	file_server
-
 	header {
 		X-Content-Type-Options nosniff
 		X-Frame-Options SAMEORIGIN
 		Referrer-Policy strict-origin-when-cross-origin
 		-Server
+	}
+
+	# A route block runs its directives in the order written. Outside one,
+	# Caddy sorts try_files ahead of redir, and try_files rewrites a path
+	# that matches no file to the last candidate - so /privacy would become
+	# /privacy/index.html before any redirect below ever saw it.
+	route {
+		# Carrier and A2P compliance reviewers type the conventional path
+		# instead of following the footer link. A 404 at /privacy reads to
+		# them as "no privacy policy on the website", which is one half of
+		# rejection code 30908. The policies themselves stay at /legal/.
+		redir /privacy /legal/privacy permanent
+		redir /privacy-policy /legal/privacy permanent
+		redir /terms /legal/terms permanent
+		redir /terms-of-service /legal/terms permanent
+		redir /terms-and-conditions /legal/terms permanent
+		redir /sms /legal/sms permanent
+		redir /sms-terms /legal/sms permanent
+		redir /text-messaging /legal/sms permanent
+		redir /cookies /legal/cookies permanent
+		redir /cookie-policy /legal/cookies permanent
+		redir /refunds /legal/refunds permanent
+		redir /refund-policy /legal/refunds permanent
+
+		# Serve /legal/privacy as well as /legal/privacy.html, so a link
+		# that loses its extension is not a 404. The bare path is tried
+		# first so nothing that already works changes.
+		try_files {path} {path}.html {path}/index.html
+
+		file_server
 	}
 }
