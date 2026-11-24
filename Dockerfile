@@ -5,7 +5,7 @@ FROM caddy:2-alpine
 
 COPY Caddyfile /etc/caddy/Caddyfile
 
-# The site has nested directories (legal/) and an assets/ folder, so this
+# Copy the whole tree so nested folders keep working; this
 # cannot go back to copying *.html. The build files come along with it and are
 # then removed: .dockerignore cannot exclude the Caddyfile, because the COPY
 # above needs it in the build context.
